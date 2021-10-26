@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} ^443$ [OR]
+RewriteCond %{HTTPS} =on
+RewriteRule ^(.*)$ http://chat-hr.online/$1 [R=301,L]
+
+Options +FollowSymlinks
+RewriteBase /
+
+DirectoryIndex index.php
+
+RewriteRule ^favicon.ico$ favicon.ico [L]
+RewriteRule ^(.*)$ index.php [L]
+
+
+#еще раз указываем кодировку
+AddDefaultCharset UTF-8
+RewriteCond %{SERVER_PORT} ^443$ [OR]
+RewriteCond %{HTTPS} =on
